@@ -36,7 +36,7 @@ if(keyIsDown(LEFT_ARROW)){
     playerX -= playerXmove;
 }
     background(220);
-    rect(playerX,y,30,30);
+    rect(playerX ,playerY ,30 , 30);
 }
 /*
 function mouseClicked(){
