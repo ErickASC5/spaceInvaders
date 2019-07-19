@@ -4,6 +4,8 @@ let shipSpeed = 1;
 let shipPositionX = 30, shipPositionY = 15;
 let playerX = 0, playerY = 0, w = 0, h = 0;
 let ymove = 2, playerXmove = 2;
+let bulletCollide = false, bulletFire = false;
+let bulletX = playerX, bulletY = playerY;
 function setup(){
    createCanvas(800,800);
    background(0);
@@ -49,10 +51,28 @@ function draw(){
        playerX -= playerXmove;
     }
        rect(playerX, playerY, 30, 30);
-
-
+       if(bulletFire == false){
+       rect(playerX + 10, playerY - 10, 10, 10); 
+       bulletX = playerX + 10;
+       bulletY = playerY - 10;     
+       }
+       if(bulletFire == true){
+           bulletY -= 10;
+       rect(bulletX, bulletY, 10, 10);  
+       }
+       if(bulletY < 0){
+           bulletFire = false;
+       }
 
    }
+
+   function keyPressed(){
+    if(keyCode == 32){ // 32 is the spacebar's keyCode
+        bulletFire = true;
+    }
+return true;
+}
+
 /*
 
 
